@@ -1,6 +1,8 @@
 
 ! Securing Cisco devices by Walter Gibbons
 !
+! These commands were tested against PacketTracer's 2911 router IOS 15.1(4)
+!
 ! In Cisco IOS a line that begins with a "!" is a comment and not interpreted
 ! by the router/switch/firewall. Lines beginning with a "!" can be safely pasted into a router and
 ! will not be interpreted and will not be saved into configuration files
