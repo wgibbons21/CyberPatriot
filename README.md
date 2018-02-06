@@ -1,2 +1,2 @@
 # CyberPatriot
-Useful tools for CyberPatriot competitions
+Useful tools for CyberPatriot competitors
