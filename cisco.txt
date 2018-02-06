@@ -1,5 +1,5 @@
 
-! Securing Cisco devices
+! Securing Cisco devices by Walter Gibbons
 !
 ! In Cisco IOS a line that begins with a "!" is a comment and not interpreted
 ! by the router/switch/firewall. Lines beginning with a "!" can be safely pasted into a router and
