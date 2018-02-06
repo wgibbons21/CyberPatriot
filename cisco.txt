@@ -24,7 +24,7 @@ line vty 0 4
   no password
   login local
   exec-timeout 3 30
-  transport input ssh  ! Will require ssh connections only (won't allow telnet)
+  transport input ssh
 
 line console 0
   no password
@@ -36,11 +36,11 @@ line aux 0
   login local
   exec-timeout 3 30
 
-! Set a strong enable mode password - this is a type 8 password hash
-enable algorithm-type sha256 secret <password>
+! Set an enable mode password
+enable password <password>
 
-! Create new users with a strong, type 8 password
-username <username> algorithm-type sha256 secret <password>
+! Create new users with a password
+username <username> pass <password>
 
 ! Set a login banner to warn unauthorized users of unauthorized use
 banner login #
@@ -66,9 +66,6 @@ stored on the systems...........
 ! Throttle unsuccessful login attempts
 login block-for 60 attempts 3 with 30
 
-! Wait x seconds between login attempts
-login delay 10
-
 ! Log login attempts
 login on-success log
 login on-failure log
@@ -79,7 +76,8 @@ show login failures
 ! Configure SSH
 hostname <hostname>
 ip domain-name <domain.tld>
-crypto key generate rsa general-keys modulus 1024
+crypto key generate rsa
+! ensure you enter a modulus of at least 1024 when prompted
 ip ssh version 2
 ip ssh time-out 60
 ip ssh authentication-retries 2
@@ -99,8 +97,4 @@ ntp server <ip address of NTP server>
 ! Generally good security practices
 no cdp run
 no lldp run
-no ip directed-broadcast
-no ip http server
-no service password-recovery
 no ip domain-lookup
-no ip http secure-server
